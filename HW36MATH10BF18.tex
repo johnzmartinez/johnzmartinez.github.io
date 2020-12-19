@@ -1,0 +1,405 @@
+\documentclass [11pt, letterpaper] {amsart}
+\setlength{\pdfpageheight}{11in}
+\setlength{\pdfpagewidth}{8.5in}
+\setlength{\topmargin}{-.8in}
+\setlength{\topskip}{0in}
+\setlength{\textheight}{9.9in}
+\setlength{\textwidth}{7.10in}
+\setlength{\oddsidemargin}{-.325in}
+\setlength{\evensidemargin}{-.325in}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi.}
+\setcounter{secnumdepth}{-1}
+\usepackage{amssymb}
+%\usepackage{wasysym}
+\input xy
+\xyoption{all}
+
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\theoremstyle{plain}
+\newtheorem{exer}{}
+\newtheorem{prop}{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{exam}{}
+\renewcommand{\a}{\mathbf{a}}
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\renewcommand{\b}{\mathbf{b}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\e}{\mathbf{e}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\R}{\mathbb{R}}
+\DeclareMathOperator{\PP}{P}
+\DeclareMathOperator{\Proj}{Proj}
+%\DeclareMathOperator{\Col}{Col}
+\DeclareMathOperator{\Nul}{Nul}
+\DeclareMathOperator{\Ran}{Ran}
+\DeclareMathOperator{\Span}{Span}
+\renewcommand{\v}{\mathbf{v}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\z}{\mathbf{0}}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath, amssymb, float}
+\usepackage{graphicx}
+\usepackage{mathtools}
+%\usepackage{subfig}
+%\usepackage{pstricks, pst-plot}
+%\usepackage{times}
+\usepackage{url}
+\usepackage{enumerate}
+%\newcommand{\HRule}{\rule{\linewidth}{0.1mm}}
+\newcommand{\be}{\begin{enumerate}}      
+\newcommand{\bea}{\begin{enumerate}[(a)]}
+\newcommand{\ee}{\end{enumerate}}
+
+
+\pagestyle{plain}
+\title{Solutions to Homework \#36, MATH 10A, Fall 2018\\ with Professor Stankova
+}
+
+\begin{document}
+\maketitle
+
+\vspace{0.05in}
+\\
+We are given the following data on the concentration of HIV in the blood of 15 individuals before and 6 months after a specific treatment for HIV infection.
+
+\smallskip
+{\small\begin{center}\begin{tabular}{|c|c|c||c|c|c||c|c|c|}\hline
+Patient&Before&After&Patient&Before&After&Patient&Before&After\\\hline
+1&7.4&3.7&6&4.3&2.1&11&4.7&2.3\\\hline
+2&5.1&2.6&7&5.1&2.6&12&4.7&2.4\\\hline
+3&6.9&3.4&8&2.9&1.5&13&9.3&4.6\\\hline
+4&7.2&3.6&9&7.2&3.6&14&4.5&2.2\\\hline
+5&1.4&0.7&10&3.5&1.7&15&6.0&3.0\\\hline
+\end{tabular}
+\end{center}}
+
+\begin{exer}
+ Plot the data for the first 5 patients.
+\end{exer}
+
+\begin{proof}[Answer]
+We want to predict the after-treatment concentration of HIV in the blood. The input variable is the before-treatment HIV concentration.\\
+\includegraphics[scale=0.7]{plotHW36.png}
+\end{proof}
+
+
+\vspace{0.05in}
+
+
+
+\begin{exer}
+Write the matrix-vector form of a system leading to the best-fitting line $y=ax+b$ for the first:  (a) 2 patients; \quad (b) 3 patients; \quad (c) 5 patients; \quad (d) (Challenge) all 15 patients.
+\end{exer}
+
+\begin{proof}[Answer]
+The matrix-vector form will be represented as $A^{T}A\vec{x}=A^{T}\vec{b}$ where $\vec{x} = \left(\begin{matrix}
+                    a\\
+                    b
+                  \end{matrix}\right)$ and: \\
+(a) $A = \left(\begin{matrix}
+                    7.4 & 1 \\
+                    5.1 & 1
+                  \end{matrix}\right)$ and  $\vec{b}=\left(\begin{matrix}
+                    3.7\\
+                    2.6
+                  \end{matrix}\right)$\\
+(b) $A = \left(\begin{matrix}
+                    7.4 & 1 \\
+                    5.1 & 1 \\
+                    6.9 & 1
+                  \end{matrix}\right)$ and  $\vec{b}=\left(\begin{matrix}
+                    3.7\\
+                    2.6\\
+                    3.4
+                  \end{matrix}\right)$\\
+(c) $A = \left(\begin{matrix}
+                    7.4 & 1 \\
+                    5.1 & 1 \\
+                    6.9 & 1\\
+                    7.2 & 1\\
+                    1.4 & 1
+                  \end{matrix}\right)$ and  $\vec{b}=\left(\begin{matrix}
+                    3.7\\
+                    2.6\\
+                    3.4\\
+                    3.6\\
+                    0.7\\
+                  \end{matrix}\right)$\\
+(d) $A = \left(\begin{matrix}
+                    7.4& 1 \\
+                    5.1 & 1 \\
+                    6.9 & 1\\
+                    7.2 & 1\\
+                    1.4 & 1\\
+                    4.3 &1 \\
+                    5.1 & 1\\
+                    2.9 & 1\\
+                    7.2& 1\\
+                    3.5& 1\\
+                    4.7& 1\\
+                    4.7& 1\\
+                    9.3& 1\\
+                    4.5& 1\\
+                    6.0 &1
+                  \end{matrix}\right)$ and  $\vec{b}=\left(\begin{matrix}
+                    3.7\\
+                    2.6\\
+                    3.4\\
+                    3.6\\
+                    0.7\\
+                    2.1\\
+                    2.6\\
+                    1.5\\
+                    3.6\\
+                    1.7\\
+                    2.3\\
+                    2.4\\
+                    4.6\\
+                    2.2\\
+                    3.0
+                  \end{matrix}\right)$
+
+\end{proof}
+
+
+
+
+
+\vspace{0.05in}
+\begin{exer}
+Solve the systems in Problem~2(a)(b)(c). Draw the three best-fitting lines on your plot. For an extra challenge, solve the system for 15 patients in Problem~2(d).
+\end{exer}
+
+\begin{proof}[Answer]
+We solve the different systems in question by Gaussian elimination and those are the results that we find for the different systems: \\
+(a) $\left(\begin{matrix}
+                    a\\
+                    b
+                  \end{matrix}\right) = \left(\begin{matrix}
+                    0.47826087\\
+                    0.16086957
+                  \end{matrix}\right) $
+\\(b) $\left(\begin{matrix}
+                    a\\
+                    b
+                  \end{matrix}\right) = \left(\begin{matrix}
+                    0.46924829\\
+                    0.19886105
+                  \end{matrix}\right) $
+\\(c) $\left(\begin{matrix}
+                    a\\
+                    b
+                  \end{matrix}\right) = \left(\begin{matrix}
+                    0.4964539\\
+                    0.01985816
+                  \end{matrix}\right) $
+\\(d) $\left(\begin{matrix}
+                    a\\
+                    b
+                  \end{matrix}\right) = \left(\begin{matrix}
+                    0.49589277\\
+                    0.01529332
+                  \end{matrix}\right) $
+                  
+                  \includegraphics[scale=0.4]{plotHW36-2.png}
+
+
+\end{proof}
+
+
+
+
+
+\vspace{0.05in}
+\begin{exer} 
+For any line $y=f(x)=ax+b$, the \textit{residual} of a data point $(x_i,y_i)$ is the difference $y_i-f(x_i)$ between the actual value $y_i$ and what the line would have predicted, $f(x_i)=ax_i+b$. We can calculate the error of a line by adding up the residuals:
+
+\centerline{$E= (y_1-f(x_1))+(y_2-f(x_2))+\cdots+(x_n-f(x_n))$,} 
+\noindent or we can add up the \textit{squares} of the residuals and then take the square root of that: \\
+$S=\sqrt{(y_1-f(x_1))^2+(y_2-f(x_2))^2+\cdots+(x_n-f(x_n))^2}$.
+Why can $E$ turn out to be 0 even if the data is very far from the line? What is the significance of $S$ in the least-square method of best-fitting lines? Finally, for each of your best-fitting lines in Problem~3, compute both errors $E$ and $S$.
+\end{exer}
+
+\begin{proof}[Answer]
+$E$ can turn out to be 0 even if the data is very far from the line because the value of the residual can be positive or negative, thus the errors can cancel each other. \\
+We compute $S$ in the least-square method of best-fitting lines to overcome the issue mentioned previously. We are measuring the vertical distance between the best-fitting line and each data point of our training set. We square them, add them together and take the square root to go back to a distance unit.
+
+we compute E and S for the 3 best-fitting lines we obtained in question 3:\\
+(a) E = -0.76956521739 and S = 0.284009904244 for 2 patients\\
+(b) E = -0.616628701595 and S = 0.298985768326  for 3 patients\\
+(c) E = -0.113475177305 and S = 0.155702431971  for 5 patients\\
+
+\end{proof}
+
+
+
+
+
+\vspace{0.05in}
+\begin{exer} 
+Use the three lines you found in Problem~3 to make three predictions about the concentration of HIV in the blood of an individual 6 months after the HIV treatment, given that the patient starts with a concentration of 6.0. Compare with the actual data for such a patient. As an extra challenge, use your best-fitting line for 15 patients to make a prediction about this.
+\end{exer}
+
+\begin{proof}[Answer]
+The equation of the best-fitting line for the different cases is:\\
+(a) $y=0.47826087\times x + 0.16086957$. So for an input of $x=6.0$, the corresponding prediction will be: $0.47826087\times 6.0 + 0.16086957 = 3.03$\\
+(b) $y=0.46924829\times x + 0.19886105$. So for an input of $x=6.0$, the corresponding prediction will be: $0.46924829\times 6.0 + 0.19886105 = 3.01$\\
+(c) $y=0.4964539\times x + 0.01985816$. So for an input of $x=6.0$, the corresponding prediction will be: $0.4964539\times 6.0 + 0.01985816 = 3.00$\\
+(d - challenge) $y=0.49589277\times x + 0.01529332$. So for an input of $x=6.0$, the corresponding prediction will be: $0.49589277\times 6.0 + 0.01529332 = 2.99$
+\end{proof}
+
+
+
+
+
+\vspace{0.05in}
+\begin{exer}
+The shortcut formulas for $a$ and $b$ of the best-fitting line of points $(x_1,y_1),\ldots,(x_n,y_n)$ are:
+\newline\centerline{$\displaystyle{a=\frac{\overline{xy}-\overline{x}\,\overline{y}}{\overline{x^2}-\overline{x}^2},\,\,\quad b=\overline{y}-a\overline{x}, \text{ where } \overline{x}=\frac{\sum_{i=1}^nx_i}{n}, \,\, \overline{xy}=\frac{\sum_{i=1}^nx_iy_i}{n}; \,\,\overline{x^2}=\frac{\sum_{i=1}^nx_i^2}{n};}$}
+i.e, $\overline{x}$  is the average of the $x_i$'s; $\overline{xy}$ is the average of the products $x_iy_i$, and so on.
+Using these formulas, find again the best-fitting lines for the first 2, 3, and 5 patients, and compare with your results in Problem~3. As an extra challenge, do this also for all 15 patients.
+
+
+\end{exer}
+
+\begin{proof}[Answer]
+For the different cases, we have:\\
+(a) For 2 patients:  $\overline{xy}= 20.32$, $\overline{x}= 6.25$, $\overline{y}= 3.15$, $\overline{x^{2}}= 40.385$. So $a=\frac{20.32-6.25\times 3.15}{40.385-6.25^2}=0.47826087$ and $b = 3.15 - 0.47826087\times 6.25 = 0.16086956$  \\
+(b) For 3 patients:  $\overline{xy}= 21.367$, $\overline{x}= 6.467$, $\overline{y}= 3.23$, $\overline{x^{2}}= 42.793$. So $a=\frac{21.367-6.467\times 3.23}{42.7933-6.467^2}=0.49277654$ and $b = 3.23 - 0.49277654\times 6.467 = 0.04321412$  \\
+(c) For 5 patients:  $\overline{xy}= 18.2$, $\overline{x}= 5.6$, $\overline{y}= 2.8$, $\overline{x^{2}}= 36.436$. So $a=\frac{18.2-5.6\times 2.8}{36.436-5.6^2}=0.49645390$ and $b = 2.8 - 0.49645390 \times 5.6 = 0.019858160$  \\
+(d) For 15 patients:  $\overline{xy}= 16.152$, $\overline{x}= 5.35$, $\overline{y}= 2.67$, $\overline{x^{2}}= 32.407$. So $a=\frac{16.152-5.35\times 2.67}{32.407-5.35^2}=0.49346017$ and $b = 2.67 - 0.49346017 \times 5.35 = 0.029988091$  \\
+Those values are really close to the results found in Problem 3 (the small differences come from approximations made during the computation).
+\end{proof}
+
+
+\vspace{0.05in}
+\begin{exer} 
+We do not need special methods to find the best-fitting line for the first two patients! Why? Find this line in a third (very simple) way. Compare with your answers for 2 patients above.
+\end{exer}
+
+\begin{proof}[Answer]
+There is exactly one line joining two distinct points. Its equation can be found this way: \\
+We know the equation can be written $y=ax+b$ with the slope a and the intercept b. We know also that this line passes by the points (7.4,3.7) and (5.1,2.6). So the slope a is equal to $a=\frac{3.7-2.6}{7.4-5.1} = 0.47826087 $ that is equal to the value of a found in Problem 3 for 2 patients. The intercept b can be found using one of the two points. We have $3.7 = 0.47826087\times7.4 + b$, so $b=3.7 - 0.47826087\times7.4=0.16086957 $ which is also the value of b found in Problem 3.
+
+\end{proof}
+
+
+
+
+
+\vspace{0.05in}
+
+    
+\vspace{0.05in}
+\begin{exer} 
+
+(Challenge) Find the best-fitting \textit{parabola} for the data on patients 12, 13, 14, and 15. \newline (\textit{Hint:} Instead of the $n\times 2$ matrix $A$ whose first column is the input vector $\vec{x}$ and whose second column is the constant vector $\vec{u}$ with all entries equal to 1, use the $n\times 3$ matrix $A$ that has one extra column on the left with entries $x_1^2, x_2^2,\ldots, x_n^2$. 
+   
+\end{exer}
+
+\begin{proof}[Answer]
+Following the hint, we create this extra column in A (concerning only the patients 12 to 15): \\
+$A = \left(\begin{matrix}
+                    4.7^2 &4.7& 1\\
+                    9.3^2 &9.3& 1\\
+                    4.5^2 &4.5& 1\\
+                    6.0^2 &6.0 &1
+                  \end{matrix}\right)$
+                  \\and b is still: $\vec{b}=\left(\begin{matrix}
+                    2.4\\
+                    4.6\\
+                    2.2\\
+                    3.0
+                  \end{matrix}\right)$
+            
+We follow the same reasoning by solving $\left(\begin{matrix}
+                    a\\
+                    b
+                  \end{matrix}\right) = (A^TA)^{-1}A^T\vec{b} = \left(\begin{matrix}
+                    -0.00606322\\
+                    0.57439193\\
+                    -0.21830052
+                  \end{matrix}\right)$ which represents the best-fitting parabola: $f(x) = -0.00606322x^2 + 0.57439193x -0.21830052  $
+               
+\end{proof}
+
+
+
+
+
+\vspace{0.05in}
+
+
+
+
+
+
+
+\prob{True \& False}
+\begin{enumerate}
+    \item (Certain impossibility) $A^TA$  cannot be a symmetric matrix if A  is not square.
+                    
+\\
+    \emph{False. $A^TA$ is always symmetric because if we transpose it is still equal to $A^TA$. This comes from the following formulas: $(AB)^T=B^TA^T$, from which $(A^TA)^T=A^T(A^T)^T= A^TA$}\\\item 
+    (Canceling opposites or flip-flopping?) The sum of the residuals of data points from a line is not a good estimate of the fitness of the line, since this sum could be large, yet the data points could be very close to the line.
+                    
+\\
+    \emph{False. The reason why the sum of the residuals of data points is not a good estimate of the fitness of the line is because its value could be 0 even if the points are very far from the line (see previous question 4 of the problem).}\\
+    \item 
+        (Deep comparison) The error that we want to minimize when finding the least-square best-fitting line for a bunch of data points is analogous to the standard error in a set of data.
+                    
+\\
+    \emph{True. The standard error, though, is also averaging the square distances, and hence we also divide there by n = the size of the data set.}\\\item 
+                        (Going "Einstein" to 4 and more dimensions!) The least-square best-fitting line for any number of data points  always exists and is unique essentially because there is a (unique) shortest distance from a point to a plane in any dimensions.
+\\
+    \emph{False. The formula $\left(\begin{matrix}
+                    a\\
+                    b
+                  \end{matrix}\right) = (A^TA)^{-1}A^T\vec{b}$ is valid only if the matrix $(A^TA)^{-1}$ is invertible. In that case there is only one line. Otherwise, there are an infinite number of solutions for the parameters a and b. But as long as not all $x_i$'s are the same (i.e., there are at least two different input values $x_i$ and $x_j$), the determinant of  $A^TA$ will be $n(\overline{x^2}-(\overline{x})^2)>0$ and we will have a unique solution, because the matrix $A^TA$ will be invertible.}\\\item 
+                    
+                    
+                        If $A=\left(\begin{array}{cc} x_1&1\\x_2&1\\\vdots&\vdots\\ x_n&1\end{array}\right)$   for the inputs  $x_1,x_2,\ldots,x_n$ of our data points,\\
+                        \begin{itemize}
+                            \item 
+                        (Repetition in disguise) The normal equation $$ A^TA\left(\begin{array}{c}a\\b\end{array}\right)=A^T\vec{y}$$  may fail to have a solution for some special choice of different inputs  $x_1,x_2,\ldots,x_n$
+\\
+    \emph{False. This equation always has a unique solution, as long as not all $x_i$'s are equal}\\\item 
+                            (Mandatory "push-ups") We must find the inverse of  $A^TA$ in the normal equation in order to find the coefficients a  and  b  of the best-fitting line.
+\\
+    \emph{False. We can also solve the system with the augmented matrix using Gaussian Elimination.}\\\item 
+                            (Mixing different species!) The entries of the matrix $A^TA$  in the normal equation are  \\$1, \sum_{i=1}^nx_i, \sum_{i=1}^nx_iy_i, \text{ and } \sum_{i=1}^nx_i^2 $
+\\
+    \emph{False. The matrix $A^TA$ has to be symmetric so the term $\sum x_i$ is repeated across the diagonal of $A^TA$; for that, $A^TA$ contains no $y_i$'s, and hence the term $\sum x_iy_i $ is not part of it.}\\\item 
+    
+            (Shortcut det) $ \frac{1}{n}\det(A^tA)=\overline{x}^2-\overline{x^2} $, where the definitions of $\overline{x}^2$  and  $\overline{x^2}$   can be found somewhere in this HW assignment.
+                    
+\\
+    \emph{True. We know that $\frac{1}{n}A^TA=\left(\begin{matrix}
+                    1 & \overline{x}\\
+                    \overline{x} & \overline{x^2}
+                  \end{matrix}\right)$ which means that $\frac{1}{n}det(A^TA) =\overline{x}^2-\overline{x^2} $}\\
+\end{itemize}                  
+\item 
+                        (The more, the merrier!) If we use more data points to find the best-fiting line, we may increase the overall error  S  yet still be able to make better predictions about the data.
+\\
+    \emph{True. If we add more data, S will be bigger but the prediction we can make better predictions by finding a better fitting line.}\\\item 
+                        (Are all implications of a theorem necessarily true?) The second super-shortcut formula for a  and b  can be rewritten as $\overline{y}=a\overline{x}+b$ , meaning that the point  $(\overline{x},\overline{y})$  (whose coordinates are the averages of the corresponding coordinates of the data points) lies exactly on the best-fitting line, and this doesn't make sense since it does not always have to happen! 
+\\
+    \emph{False: Yes, the point $(\overline{x},\overline{y})$ lies exactly on the best-fitting line, and this makes sense numerically since this is the average point of the data, and if any point should lie on the best-fitting line, it should be this average point. }
+                
+    
+    
+\end{enumerate}
+
+
+
+
+\end{document}
